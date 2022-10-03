@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .noTop {
+        @apply text-12 xl:text-18 px-30 flex bg-white duration-500 drop-shadow-lg justify-center text-purpleT
+    }
+    .titleCharts {
+        @apply text-22 text-balck font-bold
+    }
+    .sizeChartsPage {
+        @apply w-full lg:w-[33%] mb-8
+    }
+    .dropDownList {
+        @apply py-1 pr-1 cursor-pointer hover:scale-x-110 hover:text-center hover:text-purple
+    }
+    .underLineEffectOn {
+        /* @apply bg-gradient-to-r from-red to-red bg-no-repeat bg-bottom h-[0.11em] bg-0 hover:bg-100 */
+        @apply capitalize inline-block relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 
+            before:-translate-x-1/2 before:w-0 before:h-[2px] before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-gradient-to-r
+            before:from-white before:via-purpleT before:to-white hover:before:w-full hover:before:opacity-100
+    }
+    .customText {
+        @apply drop-shadow-shadow-title
+    }
+    .cb {
+        @apply border-2 border-red
+    }
+    .p5gC2 {
+        @apply pt-25 pl-16 xl:pl-27 pb-42 pr-18 xl:pr-31
+    }
+    .hoverEffect {
+        @apply hover:shadow-lg hover:opacity-90 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out
+    }
+
+}
+
+
+
+@keyframes ping {
+    50%, 75% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+}
