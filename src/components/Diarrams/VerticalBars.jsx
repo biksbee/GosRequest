@@ -1,50 +1,105 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
+
 const VerticalBar = () => {
-    const labels = ["RSNet", "ВГТРК", "ВНИИгеосистем", "ВЭИ", "ГлавНИВЦ", "Госзнак", "ГосНИИАС", "ГРЧЦ (РКН)", "Железногорский ГХК", "Кемеровское казначейство", "МВД", "Министерство образования", "Минфин", "НИЦИ при МИД", "НТЦ Атлас", "НТЦ Информрегистр", "Росатом", "РСВО", "Рублево-Успенский ЛОК", "Следственный комитет", "Спецсвязь ФСО РФ", "ФНС РФ", "ФОМС", "ФСБ", "ФСК ЕЭС", "ФСО", "Центринформ", "ЦТСПИ при МИД", "Электронное правительство"]
-    const value = [6, 5, 18, 1, 6, 5, 14, 3, 9, 8, 11, 16, 5, 20, 5, 9, 8, 12, 6, 5, 20, 24, 14, 16, 5, 7, 18, 16, 5, 20, 5, 9, 8, 12, 6]
-    const data = {
-        labels: labels,    
-        datasets: [{
-            axis: 'y',
-            data: value,
-            
-            backgroundColor: [
-                '#9072F4',
-            ],
-            borderWidth: 1,
-        }],
-    };
-    const options = {
-        scales: {
+    
+    const url = "https://mge19722ka.execute-api.eu-central-1.amazonaws.com/production/statistics"
+
+    const [obj, setObj] = useState([])
+
+    const lastSevenDay = () => {
+      const v = []
+      const l = [] 
+      obj.forEach(element => {
+          v.push(element.count)
+          l.push(element.name)
+      })
+      return {v, l}    
+    }
+
+    const labels = () => {
+        const l = lastSevenDay()
+        return l.l
+    }
+    const value = () => {
+      const v = lastSevenDay()
+      return v.v
+  }
+        
+        useEffect(() => {
+            const request = async () => {
+                const res = await fetch(url)
+                const items = await res.json()
+                setObj(items.subnets)
+                return items
+            }
+            const req = request()    
+        }, [])
+        const res = lastSevenDay()
+    
+      const randomInteger = (max) => {
+          return Math.floor(Math.random()*(max + 1));
+      }
+      const randomRgbColor = () => {
+          const len = value()
+          const bgc = []
+          const bbgc = [] 
+          let colorStart = ''
+          len.forEach(element => {
+            let r = randomInteger(255)
+            let g = randomInteger(255)
+            let b = randomInteger(255)
+            colorStart = (r + ', ' + g + ', ' + b)
+            bgc.push('rgba(' + colorStart + ', 0.5)')
+            bbgc.push('rgb(' + colorStart + ')')
+          })
+          return {bgc, bbgc}
+      }
+      const q = randomRgbColor()
+        const data = {
+          labels: labels(),
+          datasets: [{
+            axis: 'x',
+            data: value(),
+            backgroundColor: '#9072F4',
+            borderColor: '#9072F4',
+            borderWidth: 1
+          }]
+        };
+        const options = {
+          indexAxis: 'y',
+          scales: {
             x: {
               grid: {
-                display: false
+                display: false,
               }
             },
             y: {
               grid: {
-                display: false
-              }
-            },
-          },
-        indexAxis: 'y',
-        plugins: {
-            legend: {
-                maxHeight: 8,
                 display: false,
+              }
+            }
+          },
+          plugins: {
+            legend: {
+                display: false
             },
-        }
-    }
+        },
+          type: 'bar',
+          data: data,
+        };
 
-  return(
-    <div>
-      <Bar data={data} options={options} />
-    </div>
-  )
+      return(
+          <div className="h-full">
+              <Bar data={data} options={options} />
+          </div>
+      )
 
 }
 
 export default VerticalBar
+
+
+

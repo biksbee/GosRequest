@@ -3,14 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-    .noTop {
-        @apply text-12 xl:text-18 px-30 flex bg-white duration-500 drop-shadow-lg justify-center text-purpleT
-    }
     .titleCharts {
         @apply text-22 text-balck font-bold
     }
+    .title-charts{
+        @apply xlg:h-[24px] lg:h-[48px]
+    }
     .sizeChartsPage {
-        @apply w-full lg:w-[33%] mb-8
+        @apply w-full lg:w-[33%] mb-8 
+    }
+    .heightChart{
+        @apply h-[400px]
     }
     .dropDownList {
         @apply py-1 pr-1 cursor-pointer hover:scale-x-110 hover:text-center hover:text-purple
@@ -25,7 +28,7 @@
         @apply drop-shadow-shadow-title
     }
     .cb {
-        @apply border-2 border-red
+        @apply border-2 border-red 
     }
     .p5gC2 {
         @apply pt-25 pl-16 xl:pl-27 pb-42 pr-18 xl:pr-31

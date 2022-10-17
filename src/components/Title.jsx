@@ -10,11 +10,11 @@ const Title = () => {
                 <div className="flex items-center">
                     <div className="flex w-full h-max items-center justify-between">
                         <div className="pl-10 md:pl-17 h-max md:absolute">
-                            <div className="text-black text-22 sm:text-31 md:text-60 mb-5 customText">
+                            <div className="text-black text-22 sm:text-31 md:text-60 mb-5">
                                 Трекер госзапросов
                             </div>
-                            <div className="text-black text-16 sm:text-22 md:text-28 customText">
-                                собираем данные и пишем в базу
+                            <div className="text-black text-16 sm:text-22 md:text-28 text-center">
+                                Осведомлен – значит вооружен
                             </div>
                         </div>
                         <div className="mt-18 w-[50%] mb-46 md:ml-[50%] mr-10 md:mr-12">

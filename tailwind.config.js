@@ -16,6 +16,7 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
+      xlg: '1258px',
       xl: '1304',
       '2xl': '1536px',
     },
@@ -49,6 +50,7 @@ module.exports = {
         '1': '1px'
       },
       spacing: {
+        '1': '1px',
         '6': '6px',
         '10': '10px',
         '13': '13px',
