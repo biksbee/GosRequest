@@ -45,10 +45,13 @@ const PieChart = () => {
   }, [])
 
 
+  const v = ["chrome", "firefox", "safari", "Яндекс"]
+  const l = [40, 15, 30, 15]
 
     const data = {
       datasets: [{
-          data: create().v,
+          // data: create().v,
+          data: v,
           backgroundColor: [
               'rgb(154, 119, 252)',
               'rgb(174, 114, 254)',
@@ -58,7 +61,8 @@ const PieChart = () => {
               'rgb(225, 215, 252)'
           ],
         }],
-        labels: create().l,
+        // labels: create().l,
+        labels: l
     }
   const options = {
       plugins: {

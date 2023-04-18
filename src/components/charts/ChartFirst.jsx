@@ -69,7 +69,8 @@ const ChartFirst = () => {
                         {currentDate}
                     </div>
                     <div className="text-[160px] text-amount">
-                        {create()[0]}
+                        {/* {create()[0]} */}
+                        {20}
                     </div>
                 </div>    
                 <div className="w-[80%] h-auto">

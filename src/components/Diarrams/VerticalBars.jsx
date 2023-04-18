@@ -57,12 +57,18 @@ const VerticalBar = () => {
           })
           return {bgc, bbgc}
       }
+
+      const v = [10, 20, 35, 5, 65, 23, 12, 56, 14]
+      const l = ['a', 'b', 'c', 'd', 'e', 'f', 'j', 'g']
+
       const q = randomRgbColor()
         const data = {
-          labels: labels(),
+          // labels: labels(),
+          labels: l,
           datasets: [{
             axis: 'x',
-            data: value(),
+            // data: value(),
+            data: v,
             backgroundColor: '#9072F4',
             borderColor: '#9072F4',
             borderWidth: 1
