@@ -45,8 +45,8 @@ const PieChart = () => {
   }, [])
 
 
-  const v = ["chrome", "firefox", "safari", "Яндекс"]
-  const l = [40, 15, 30, 15]
+  const l = ["chrome", "firefox", "safari", "Яндекс"]
+  const v = [40, 15, 30, 15]
 
     const data = {
       datasets: [{
